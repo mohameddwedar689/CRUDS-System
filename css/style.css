@@ -14,3 +14,17 @@ body {
     font-family: 'Poppins', sans-serif;
     font-family: 'Red Hat Display', sans-serif;
 }
+/* Container Style */
+.crud-container {
+    width: 80%;
+    margin: auto;
+}
+/* Start Styling Heading Section */
+.heading {
+    margin: 10px 0px;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 20px;
+    word-spacing: 5px;
+}
+/* Ending Heading Section Style */
