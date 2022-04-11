@@ -1,0 +1,16 @@
+:root {
+    /* Dark Mode */
+    --body-color: #222;
+    --font-color: #fff; 
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    background-color: var(--body-color);
+    color: var(--font-color);
+    font-family: 'Poppins', sans-serif;
+    font-family: 'Red Hat Display', sans-serif;
+}
