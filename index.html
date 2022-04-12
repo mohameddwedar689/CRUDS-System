@@ -25,11 +25,11 @@
         <section class="input">
             <input type="number" placeholder="Title" id="title">
             <div class="price">
-                <input type="number" placeholder="Price" id="price">
-                <input type="number" placeholder="Taxes" id="taxes">
-                <input type="number" placeholder="Ads" id="ads">
-                <input type="number" placeholder="Discount" id="discount">
-                <small id="total">31220</small>
+                <input type="number" placeholder="Price" id="price" onkeyup="getTotalPrice()">
+                <input type="number" placeholder="Taxes" id="taxes" onkeyup="getTotalPrice()">
+                <input type="number" placeholder="Ads" id="ads" onkeyup="getTotalPrice()">
+                <input type="number" placeholder="Discount" id="discount" onkeyup="getTotalPrice()">
+                <small id="total"></small>
             </div>
             <input type="number" placeholder="Count" id="count">
             <input type="number" placeholder="Category" id="category">

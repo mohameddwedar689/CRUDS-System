@@ -78,7 +78,7 @@ button:hover {
 }
 #total {
     width: 100%;
-    background-color: red;
+    background-color: var(--btn-red);
     height: 30px;
     line-height: 30px;
     padding: 4px 2px;
