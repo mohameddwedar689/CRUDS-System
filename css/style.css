@@ -88,3 +88,38 @@ button:hover {
     content: 'Total: ';
 }
 /* Ending Input Section Style  */
+/* Start Styling Output Section */
+.search-btn {
+    display: flex;
+    justify-content: space-between;
+}
+.search-btn button {
+    width: 45%;
+}
+table {
+    width: 100%;
+    margin-top: 10px;
+    text-align: center;
+}
+table button#update {
+    background-color: var(--btn-green);
+}
+table button#update:hover {
+    background-color: var(--btn-green-light);
+    letter-spacing: 1px;
+}
+table button#delete {
+    background-color: var(--btn-red);
+}
+table button#delete:hover {
+    background-color: var(--btn-red-light);
+    letter-spacing: 1px;
+}
+table th {
+    text-transform: uppercase;
+}
+table th,
+table td {
+    padding: 5px;
+}
+/* Ending Output Section Style */
