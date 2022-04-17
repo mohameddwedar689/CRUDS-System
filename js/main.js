@@ -25,3 +25,30 @@ function getTotalPrice()
         total.style.background = '#f44336';
     }
 }
+
+// Create Product Implementation
+let ProductsData;
+if(localStorage.product != null)
+{
+    ProductsData = JSON.parse(localStorage.product);
+}
+else
+{
+    ProductsData = [];
+}
+submit.onclick = function() 
+{
+    let newProductObject = 
+    {
+        title: title.value,
+        price: price.value,
+        taxes: taxes.value,
+        ads: ads.value,
+        discount: discount.value,
+        total: total.innerHTML,
+        count: count.value,
+        category: category.value
+    }
+    ProductsData.push(newProductObject);
+    localStorage.setItem('product' , JSON.stringify(ProductsData));
+}
