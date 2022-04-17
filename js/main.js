@@ -50,5 +50,22 @@ submit.onclick = function()
         category: category.value
     }
     ProductsData.push(newProductObject);
+    //saving data in local storage
     localStorage.setItem('product' , JSON.stringify(ProductsData));
+
+    //calling clear input function
+    clearInputData();
+}
+
+// Clear Input Data Function
+function clearInputData() 
+{
+    title.value = '';
+    price.value = '';
+    taxes.value = '';
+    ads.value = '';
+    discount.value = '';
+    total.innerHTML = '';
+    count.value = '';
+    category.value = '';
 }
