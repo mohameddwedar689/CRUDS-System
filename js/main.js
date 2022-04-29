@@ -89,7 +89,7 @@ function showData()
                 <td>${ProductsData[i].total}</td>
                 <td>${ProductsData[i].category}</td>
                 <td><button id="update">Update</button></td>
-                <td><button id="delete">Delete</button></td>
+                <td><button onclick="deleteData(${i})" id="delete">Delete</button></td>
             </tr>
         `
     }
@@ -97,3 +97,14 @@ function showData()
     document.getElementById('tbody').innerHTML = table;
 }
 showData();
+
+
+// Delete Function Implmentaion
+function deleteData(i)
+{
+    //i stand for id that i want to delet it
+    ProductsData.splice(i , 1);
+    localStorage.product = JSON.stringify(ProductsData);
+    //to updata all data after deletion
+    showData();
+}
