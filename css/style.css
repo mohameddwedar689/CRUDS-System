@@ -96,6 +96,9 @@ button:hover {
 .search-btn button {
     width: 45%;
 }
+.deleteAll {
+    margin: 7px 0px;
+}
 table {
     width: 100%;
     margin-top: 10px;

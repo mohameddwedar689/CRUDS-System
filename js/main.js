@@ -8,6 +8,8 @@ let total = document.getElementById('total');
 let count = document.getElementById('count');
 let category = document.getElementById('category');
 let submit = document.getElementById('submit');
+let btnDeleteAll = document.getElementById('deleteAll');
+
 
 // Get Total Prices Implementation
 function getTotalPrice() 
@@ -95,6 +97,19 @@ function showData()
     }
 
     document.getElementById('tbody').innerHTML = table;
+
+    //Delete All Button
+    if(ProductsData.length > 0)
+    {
+        btnDeleteAll.innerHTML = 
+        `
+            <button onclick="deleteAll()">Delete All</button>
+        `
+    }
+    else
+    {
+        btnDeleteAll.innerHTML = '';
+    }
 }
 showData();
 
@@ -106,5 +121,13 @@ function deleteData(i)
     ProductsData.splice(i , 1);
     localStorage.product = JSON.stringify(ProductsData);
     //to updata all data after deletion
+    showData();
+}
+
+// Delete All items Function
+function deleteAll() 
+{
+    localStorage.clear();
+    ProductsData.splice(0);
     showData();
 }
