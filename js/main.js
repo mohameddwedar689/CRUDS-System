@@ -51,7 +51,21 @@ submit.onclick = function()
         count: count.value,
         category: category.value
     }
-    ProductsData.push(newProductObject);
+
+    //Count Function Implmentation
+    if(newProductObject.count > 1)
+    {
+        for(let i = 0 ; i < newProductObject.count ; i++)
+        {
+            ProductsData.push(newProductObject);
+        }
+    }
+    else
+    {
+        ProductsData.push(newProductObject);
+    }
+
+    
     //saving data in local storage
     localStorage.setItem('product' , JSON.stringify(ProductsData));
 
@@ -103,7 +117,7 @@ function showData()
     {
         btnDeleteAll.innerHTML = 
         `
-            <button onclick="deleteAll()">Delete All</button>
+            <button onclick="deleteAll()">Delete All (${ProductsData.length})</button>
         `
     }
     else
@@ -131,3 +145,6 @@ function deleteAll()
     ProductsData.splice(0);
     showData();
 }
+
+
+
