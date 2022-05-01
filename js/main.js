@@ -9,6 +9,8 @@ let count = document.getElementById('count');
 let category = document.getElementById('category');
 let submit = document.getElementById('submit');
 let btnDeleteAll = document.getElementById('deleteAll');
+let mood = 'create';
+let temp;
 
 
 // Get Total Prices Implementation
@@ -52,18 +54,29 @@ submit.onclick = function()
         category: category.value
     }
 
-    //Count Function Implmentation
-    if(newProductObject.count > 1)
+    if(mood === 'create')
     {
-        for(let i = 0 ; i < newProductObject.count ; i++)
+        //Count Function Implmentation
+        if(newProductObject.count > 1)
+        {
+            for(let i = 0 ; i < newProductObject.count ; i++)
+            {
+                ProductsData.push(newProductObject);
+            }
+        }
+        else
         {
             ProductsData.push(newProductObject);
         }
     }
     else
     {
-        ProductsData.push(newProductObject);
+        ProductsData[temp] = newProductObject;
+        mood = 'create';
+        submit.innerHTML = 'Create';
+        count.style.display = 'block';
     }
+    
 
     
     //saving data in local storage
@@ -104,7 +117,7 @@ function showData()
                 <td>${ProductsData[i].discount}</td>
                 <td>${ProductsData[i].total}</td>
                 <td>${ProductsData[i].category}</td>
-                <td><button id="update">Update</button></td>
+                <td><button id="update" onclick="updateData(${i})">Update</button></td>
                 <td><button onclick="deleteData(${i})" id="delete">Delete</button></td>
             </tr>
         `
@@ -146,5 +159,29 @@ function deleteAll()
     showData();
 }
 
+
+// Update Data 
+function updateData(i)
+{
+    title.value = ProductsData[i].title;
+    price.value = ProductsData[i].price;
+    taxes.value = ProductsData[i].taxes;
+    ads.value = ProductsData[i].ads;
+    discount.value = ProductsData[i].discount;
+    category.value = ProductsData[i].category;
+    //to trun get total on
+    getTotalPrice();
+    // Count Function off
+    count.style.display = 'none';
+    submit.innerHTML = 'Update';
+    mood = 'update';
+    temp = i;
+
+    //scroll to top
+    scroll({
+        top: 0,
+        behavior: "smooth"
+    })
+}
 
 
