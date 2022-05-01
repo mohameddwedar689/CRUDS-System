@@ -56,27 +56,36 @@ submit.onclick = function()
         category: category.value.toLowerCase()
     }
 
-    if(mood === 'create')
+    //clean data input
+    if(title.value != '' && price.value != '' && category.value != '')
     {
-        //Count Function Implmentation
-        if(newProductObject.count > 1)
+        if(mood === 'create')
         {
-            for(let i = 0 ; i < newProductObject.count ; i++)
+            //Count Function Implmentation
+            if(newProductObject.count > 1)
+            {
+                for(let i = 0 ; i < newProductObject.count ; i++)
+                {
+                    ProductsData.push(newProductObject);
+                }
+            }
+            else
             {
                 ProductsData.push(newProductObject);
             }
         }
         else
         {
-            ProductsData.push(newProductObject);
+            ProductsData[temp] = newProductObject;
+            mood = 'create';
+            submit.innerHTML = 'Create';
+            count.style.display = 'block';
         }
     }
     else
     {
-        ProductsData[temp] = newProductObject;
-        mood = 'create';
-        submit.innerHTML = 'Create';
-        count.style.display = 'block';
+        //calling clear input function
+        clearInputData();
     }
     
 
@@ -84,8 +93,7 @@ submit.onclick = function()
     //saving data in local storage
     localStorage.setItem('product' , JSON.stringify(ProductsData));
 
-    //calling clear input function
-    clearInputData();
+    
     //calling show data function
     showData();
 }
