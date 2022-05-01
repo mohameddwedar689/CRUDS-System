@@ -39,10 +39,10 @@
         <!-- Start Output Section -->
         <section class="output">
             <div class="search-section">
-                <input type="text" placeholder="Search" id="search">
+                <input type="text" placeholder="Search" id="search" onkeyup="searchData(this.value)">
                 <div class="search-btn">
-                    <button id="searchTitle">Search By Title</button>
-                    <button id="searchCategory">Search By Category</button>
+                    <button id="searchTitle" onclick="getSearchMood(this.id)">Search By Title</button>
+                    <button id="searchCategory" onclick="getSearchMood(this.id)">Search By Category</button>
                 </div>
             </div>
             <div id="deleteAll" class="deleteAll">
